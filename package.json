@@ -1,6 +1,6 @@
 {
   "name": "@hoowu/build-plugin-rax-ccc3x-proxy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Rax 项目 Web应用 的 CocosCreator 3.x 游戏开发 集成代理插件",
   "keywords": [
     "rax",
@@ -11,7 +11,8 @@
   ],
   "main": "lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "CHANGELOG.md"
   ],
   "author": "zfkun",
   "license": "ISC",

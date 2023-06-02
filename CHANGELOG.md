@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.3
+
+- Fix: 拼写错误
+
 ## v0.0.2
 
 - Feat: 增加 proxy 配置项 (默认 `true`), 用于主动禁用

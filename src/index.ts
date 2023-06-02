@@ -9,5 +9,5 @@ export default (api, options) => {
 
   if (command !== "start") return;
 
-  if (targets.include("web")) processWeb(api, options);
+  if (targets.includes("web")) processWeb(api, options);
 };
