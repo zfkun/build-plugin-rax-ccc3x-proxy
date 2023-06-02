@@ -1,7 +1,7 @@
-import { DEFAULT_PROXY_CONTEXT, DEFAULT_PROXY_TARGET } from "./config";
+import processWeb from "./processWeb";
 
-module.exports = async (api, options) => {
-  const { log, context, onGetWebpackConfig, onHook, setValue } = api;
+export default (api, options) => {
+  const { context } = api;
   const {
     command,
     userConfig: { targets },
@@ -9,51 +9,5 @@ module.exports = async (api, options) => {
 
   if (command !== "start") return;
 
-  if (!targets.includes("web")) {
-    log.info("[plugin-ccc3x-proxy] 工程构建目标未包含 web, 忽略退出");
-    return;
-  }
-
-  const {
-    proxyTarget = DEFAULT_PROXY_TARGET,
-    proxyContext = DEFAULT_PROXY_CONTEXT,
-  } = options || {};
-  if (!proxyTarget) {
-    log.error("[plugin-ccc3x-proxy] 代理目标地址 (proxyTarget) 不能为空");
-    return;
-  }
-
-  setValue("ccc3xProxyTarget", proxyTarget);
-
-  onGetWebpackConfig((config) => {
-    if (config.plugins.has("DefinePlugin")) {
-      config.plugin("DefinePlugin").tap((args) => [
-        Object.assign({}, ...args, {
-          "process.env.REMOTE_GAME_SERVER": JSON.stringify(proxyTarget),
-        }),
-      ]);
-
-      log.info(
-        "[plugin-ccc3x-proxy] 声明环境变量 process.env.REMOTE_GAME_SERVER => ",
-        JSON.stringify(proxyTarget)
-      );
-    }
-  });
-
-  if (proxyContext && proxyContext.length > 0) {
-    onHook("before.start.devServer", (e) => {
-      const rule = {
-        context: proxyContext,
-        target: `${proxyTarget}/`,
-        changeOrigin: true,
-      };
-
-      log.info(
-        "[plugin-ccc3x-proxy] 注册 CocosCreator 3.x 浏览器预览模式代理策略: ",
-        rule
-      );
-
-      e.devServer.options.proxy = [rule];
-    });
-  }
+  if (targets.include("web")) processWeb(api, options);
 };

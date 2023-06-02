@@ -1,6 +1,6 @@
 {
   "name": "@hoowu/build-plugin-rax-ccc3x-proxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Rax 项目 Web应用 的 CocosCreator 3.x 游戏开发 集成代理插件",
   "keywords": [
     "rax",
@@ -10,6 +10,9 @@
     "proxy"
   ],
   "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "author": "zfkun",
   "license": "ISC",
   "husky": {
@@ -20,7 +23,7 @@
   },
   "scripts": {
     "watch": "tsc --build ./tsconfig.json -w",
-    "build": "tsc --build ./tsconfig.json",
+    "build": "rm -rf ./lib && tsc --build ./tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint ./src --cache --ext .js,.jsx,.ts,.tsx",
     "eslint:fix": "npm run eslint -- --fix"
