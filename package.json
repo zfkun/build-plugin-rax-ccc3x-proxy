@@ -37,6 +37,7 @@
     "url": "git+https://github.com/zfkun/build-plugin-rax-ccc3x-proxy.git"
   },
   "publicConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }
