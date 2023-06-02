@@ -1,6 +1,6 @@
 {
   "name": "@hoowu/build-plugin-rax-ccc3x-proxy",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Rax 项目 Web应用 的 CocosCreator 3.x 游戏开发 集成代理插件",
   "keywords": [
     "rax",
