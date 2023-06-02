@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "src",
+    "outDir": "lib",
+    "target": "es5",
+    "jsx": "preserve",
+    "experimentalDecorators": true,
+    "declaration": true,
+    "sourceMap": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": [
+    "examples/**",
+    "lib/**",
+    "node_modules/**"
+  ]
+}

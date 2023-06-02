@@ -1,0 +1,42 @@
+{
+  "name": "@hoowu/build-plugin-rax-ccc3x-proxy",
+  "version": "0.0.1",
+  "description": "Rax 项目 Web应用 的 CocosCreator 3.x 游戏开发 集成代理插件",
+  "keywords": [
+    "rax",
+    "plugin",
+    "cocos",
+    "cocos creator",
+    "proxy"
+  ],
+  "main": "lib/index.js",
+  "author": "zfkun",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint"
+    }
+  },
+  "scripts": {
+    "watch": "tsc --build ./tsconfig.json -w",
+    "build": "tsc --build ./tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint ./src --cache --ext .js,.jsx,.ts,.tsx",
+    "eslint:fix": "npm run eslint -- --fix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.5",
+    "@iceworks/spec": "^1.6.0",
+    "eslint": "^8.41.0",
+    "typescript": "^5.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zfkun/build-plugin-rax-ccc3x-proxy.git"
+  },
+  "publicConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
