@@ -15,4 +15,7 @@ export const DEFAULT_PROXY_CONTEXT = [
   // 资源
   "/scene",
   "/assets",
+
+  // 插件
+  "/plugins",
 ];
