@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.6
+
+- Feat: 增加 自定义配置文件(`.cc3x.json`) 支持
+
 ## v0.0.5
 
 - Fix: 增加插件目录(`plugins`)代理

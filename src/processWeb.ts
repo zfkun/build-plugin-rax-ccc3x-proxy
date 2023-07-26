@@ -1,14 +1,58 @@
 import { DEFAULT_PROXY_CONTEXT, DEFAULT_PROXY_TARGET } from "./config";
+import { parseConfigFile } from "./utils";
 
 export default (api, options) => {
-  const { log, onGetWebpackConfig, onHook, setValue } = api;
+  const { context, log, onGetWebpackConfig, onHook, setValue } = api;
+  const { rootDir } = context;
 
-  const {
+  let {
     proxy = true,
     allowedHosts = "all",
     proxyTarget = DEFAULT_PROXY_TARGET,
     proxyContext = DEFAULT_PROXY_CONTEXT,
   } = options || {};
+
+  const config = parseConfigFile(rootDir, log);
+  if (config) {
+    log.info("[plugin-ccc3x-proxy] 存在 自定义配置文件 尝试合并", config);
+
+    if ("proxy" in config) {
+      log.info(
+        "[plugin-ccc3x-proxy] 合并 自定义配置 (proxy):",
+        proxy,
+        config.proxy
+      );
+      proxy = config.proxy;
+    }
+
+    if ("allowedHosts" in config) {
+      log.info(
+        "[plugin-ccc3x-proxy] 合并 自定义配置 (allowedHosts):",
+        allowedHosts,
+        config.allowedHosts
+      );
+      allowedHosts = config.allowedHosts;
+    }
+
+    if ("proxyTarget" in config) {
+      log.info(
+        "[plugin-ccc3x-proxy] 合并 自定义配置 (proxyTarget):",
+        proxyTarget,
+        config.proxyTarget
+      );
+      proxyTarget = config.proxyTarget;
+    }
+
+    if ("proxyContext" in config) {
+      log.info(
+        "[plugin-ccc3x-proxy] 合并 自定义配置 (proxyContext):",
+        proxyContext,
+        config.proxyContext
+      );
+      proxyContext = config.proxyContext;
+    }
+  }
+
   if (proxy === false) return;
 
   if (!proxyTarget) {

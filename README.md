@@ -87,3 +87,18 @@ $ npm install @hoowu/build-plugin-rax-ccc3x-proxy
   ]
 }
 ```
+
+### 自定义配置
+
+项目根目录下 .cc3x.json 文件, 定义的配置会强制覆盖 build.json 中的配置, 即优先级更高
+
+比如:
+
+```json
+{
+  "proxy": true,
+  "proxyTarget": "http://192.168.1.17:7456",
+  "proxyContext": ["/aaa", "/bbb"],
+  "allowedHosts": ["a.com", "sub.a.com", "b.com"]
+}
+```
