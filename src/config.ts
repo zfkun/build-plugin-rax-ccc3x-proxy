@@ -3,6 +3,12 @@ export const DEFAULT_PROXY_TARGET = "http://localhost:7456";
 
 // 资源代理规则列表
 export const DEFAULT_PROXY_CONTEXT = [
+  // 2.x 支持
+  "/preview-scripts",
+  "/preview-scene",
+  "/app",
+  "/boot.js",
+
   // 预览器
   "/preview-app",
 

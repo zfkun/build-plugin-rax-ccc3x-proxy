@@ -30,13 +30,13 @@ $ npm install @hoowu/build-plugin-rax-ccc3x-proxy
 
 #### 禁用代理
 
-```json
+```diff
 {
   "plugins": [
     [
       "@hoowu/build-plugin-rax-ccc3x-proxy",
       {
-        "proxy": false
++        "proxy": false
       }
     ]
   ]
@@ -45,13 +45,13 @@ $ npm install @hoowu/build-plugin-rax-ccc3x-proxy
 
 #### 修改代理地址
 
-```json
+```diff
 {
   "plugins": [
     [
       "@hoowu/build-plugin-rax-ccc3x-proxy",
       {
-        "proxyTarget": "http://192.168.1.17:7456"
++       "proxyTarget": "http://192.168.1.17:7456"
       }
     ]
   ]
@@ -60,13 +60,13 @@ $ npm install @hoowu/build-plugin-rax-ccc3x-proxy
 
 #### 修改代理规则
 
-```json
+```diff
 {
   "plugins": [
     [
       "@hoowu/build-plugin-rax-ccc3x-proxy",
       {
-        "proxyContext": ["/aaa", "/bbb"]
++       "proxyContext": ["/aaa", "/bbb"]
       }
     ]
   ]
@@ -75,13 +75,13 @@ $ npm install @hoowu/build-plugin-rax-ccc3x-proxy
 
 #### 修改代理白名单
 
-```json
+```diff
 {
   "plugins": [
     [
       "@hoowu/build-plugin-rax-ccc3x-proxy",
       {
-        "allowedHosts": ["a.com", "sub.a.com", "b.com"]
++        "allowedHosts": ["a.com", "sub.a.com", "b.com"]
       }
     ]
   ]
