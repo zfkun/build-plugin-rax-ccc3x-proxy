@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.9
+
+- Feat: 更新 cocos creator `3.8+` 的支持
+
 ## v0.0.8
 
 - Fix: 更新 编译产物
